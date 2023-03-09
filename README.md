@@ -80,6 +80,6 @@ datos solicitados ejemplo:
 
 - Ruta para Mostrar Todos los Usuarios
 
-- Get : localhost:9000/api/v1/users/
+- Get, Patch y Delete : localhost:9000/api/v1/users/ + id
 
 
