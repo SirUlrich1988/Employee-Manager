@@ -40,7 +40,7 @@ const Users = db.define("users", {
   role: {
     type: DataTypes.STRING,
     allowNull: false,
-    defaultValue: "normal",
+    defaultValue: "",
   },
   area: {
     type: DataTypes.STRING,
