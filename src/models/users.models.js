@@ -29,8 +29,7 @@ const Users = db.define("users", {
   },
   password: {
     type: DataTypes.STRING,
-    allowNull: false,
-    defaultValue: "",
+    allowNull: false
   },
   phone: {
     type: DataTypes.STRING,
