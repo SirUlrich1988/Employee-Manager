@@ -39,6 +39,7 @@ const createManager = async (data) => {
         firstName:data.firstName,
         lastName: data.lastName,
         email: data.email,
+        role: data.role,
         password: hashPassword(data.password)
     })
     return newManager
