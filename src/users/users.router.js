@@ -5,7 +5,7 @@ const userServices = require('./users.services')
 
 require('../middlewares/auth.middleware')(passport)
 
-router.get('/', passport.authenticate('jwt', {session: false}), userServices.getAllUsers)
+router.get(userServices.getAllUsers)
 
 // Todo el registerUser ira en la ruta /auth/register //
 
