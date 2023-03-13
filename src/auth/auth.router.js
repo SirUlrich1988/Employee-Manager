@@ -2,12 +2,12 @@
 
 const router = require('express').Router()
 const authServices = require('./auth.services')
-const { registerUser } = require('../users/users.services')
+const { registerUser, registerManager } = require('../users/users.services')
 
 // "/api/v1/auth" + register o login //
 
 router.post('/register', registerUser)
-
+router.post('/register/manager', registerManager)
 router.post('/login', authServices.login)
 
 module.exports = router

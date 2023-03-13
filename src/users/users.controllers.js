@@ -36,6 +36,17 @@ const createUser = async (data) => {
     return newUser
 }
 
+const createManager = async (data) => {
+    const newManager = await Users.create({
+        id: uuid.v4(),
+        firstName:data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        password: hashPassword(data.password)
+    })
+    return newManager
+}
+
 const updateUser = async (id, data) => {
     const result = await Users.update(data, {
         where: {
@@ -70,5 +81,6 @@ module.exports = {
     getUserById,
     updateUser,
     deleteUser,
-    getUserByEmail
+    getUserByEmail,
+    createManager
 }

@@ -60,7 +60,40 @@ const registerUser = (req, res) => {
             job: 'string'
         }})
     }
-};
+}
+
+const registerManager = (req, res) => {
+  const {firstName, lastName, email, password} = req.body
+
+    if (
+        firstName &&
+        lastName &&
+        email &&
+        password
+    ) {
+        //? Ejecutamos el controller
+        usersControllers.createUser({
+          firstName, lastName, email, password})
+            .then( data => {
+                res.status(201).json(data)
+            })
+            .catch(err => {
+                res.status(400).json(err.message)
+            })
+    } else {
+
+    // Error cuando no mandan todos los datos necesarios para crear un usuario //
+
+        res.status(400).json({message: 'All fields must be completed', 
+        fields: {
+            firstName: 'string',
+            lastName: 'string',
+            email: 'example@example.com',
+            password: 'string'
+        }})
+    }
+}
+
 
 const patchUser = (req, res) => {
   const id = req.params.id;
@@ -103,6 +136,7 @@ module.exports = {
     getUserById,
     patchUser,
     registerUser,
-    deleteUser
+    deleteUser, 
+    registerManager
 }
 
