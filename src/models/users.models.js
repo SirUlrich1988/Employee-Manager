@@ -32,7 +32,8 @@ const Users = db.define('users', {
     },
     phone:{
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: ''
     },
     role:{
         type: DataTypes.STRING,
@@ -41,11 +42,13 @@ const Users = db.define('users', {
     },
     area:{
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: ''
     },
     job: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: ''
     },
     status:{
         type: DataTypes.STRING,
