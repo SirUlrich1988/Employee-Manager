@@ -69,11 +69,12 @@ const registerManager = (req, res) => {
         firstName &&
         lastName &&
         email &&
-        password
+        password &&
+        role
     ) {
         //? Ejecutamos el controller
         usersControllers.createUser({
-          firstName, lastName, email, password})
+          firstName, lastName, email, password, role})
             .then( data => {
                 res.status(201).json(data)
             })
@@ -89,7 +90,8 @@ const registerManager = (req, res) => {
             firstName: 'string',
             lastName: 'string',
             email: 'example@example.com',
-            password: 'string'
+            password: 'string',
+            role: 'admin'
         }})
     }
 }
