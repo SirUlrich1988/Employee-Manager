@@ -4,10 +4,10 @@ const { DataTypes } = require("sequelize");
 
 const Users = db.define("users", {
   id: {
-    primaryKey: true,
     type: DataTypes.INTEGER,
     autoIncrement: true,
-    allowNull: false,
+    primaryKey: true,
+    allowNull: false
   },
   firstName: {
     type: DataTypes.STRING,
@@ -62,6 +62,6 @@ const Users = db.define("users", {
     field: "is_verified",
     defaultValue: false,
   },
-});
+})
 
 module.exports = Users;
