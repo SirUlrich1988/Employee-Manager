@@ -69,12 +69,11 @@ const registerManager = (req, res) => {
         firstName &&
         lastName &&
         email &&
-        password &&
-        role
+        password
     ) {
         //? Ejecutamos el controller
         usersControllers.createUser({
-          firstName, lastName, email, password, role})
+          firstName, lastName, email, password})
             .then( data => {
                 res.status(201).json(data)
             })
@@ -90,8 +89,7 @@ const registerManager = (req, res) => {
             firstName: 'string',
             lastName: 'string',
             email: 'example@example.com',
-            password: 'string',
-            role: 'admin'
+            password: 'string'
         }})
     }
 }
@@ -99,10 +97,10 @@ const registerManager = (req, res) => {
 
 const patchUser = (req, res) => {
   const id = req.params.id;
-  const { firstName, lastName, email, password, phone, area, job } = req.body
+  const { firstName, lastName, email, password, phone, role, area, job } = req.body
 
   usersControllers
-    .updateUser(id, { firstName, lastName, email, password, phone, area, job })
+    .updateUser(id, { firstName, lastName, email, password, phone, role, area, job })
     .then((data) => {
       if (data[0]) {
         res
