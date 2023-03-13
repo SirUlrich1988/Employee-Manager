@@ -3,9 +3,9 @@ const db = require('../tools/database')
 const { DataTypes } = require('sequelize')
 
 const Users = db.define('users', {
-    id : {
+    id:{
         primaryKey: true, 
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     firstName:{
@@ -26,9 +26,10 @@ const Users = db.define('users', {
             isEmail: true
         }
     },
-    password: {
+    password:{
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: ''
     },
     phone:{
         type: DataTypes.STRING,
@@ -45,7 +46,7 @@ const Users = db.define('users', {
         allowNull: false,
         defaultValue: ''
     },
-    job: {
+    job:{
         type: DataTypes.STRING,
         allowNull: false,
         defaultValue: ''

@@ -24,7 +24,7 @@ const getUserById = async (id) => {
 
 const createUser = async (data) => {
     const newUser = await Users.create({
-        id: uuid.v4(),
+        id: data.id,
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,
@@ -38,7 +38,7 @@ const createUser = async (data) => {
 
 const createManager = async (data) => {
     const newManager = await Users.create({
-        id: uuid.v4(),
+        id: data.id,
         firstName:data.firstName,
         lastName: data.lastName,
         email: data.email,
