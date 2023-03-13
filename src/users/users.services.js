@@ -24,20 +24,19 @@ const getUserById = (req, res) => {
 };
 
 const registerUser = (req, res) => {
-  const {firstName, lastName, email, password, phone, area, job } = req.body
+  const {firstName, lastName, email, phone, area, job } = req.body
 
     if (
         firstName &&
         lastName &&
         email &&
-        password &&
         phone &&
         area &&
         job
     ) {
         //? Ejecutamos el controller
         usersControllers.createUser({
-          firstName, lastName, email, password, phone, area, job
+          firstName, lastName, email, phone, area, job
         })
             .then( data => {
                 res.status(201).json(data)
@@ -54,7 +53,6 @@ const registerUser = (req, res) => {
             firstName: 'string',
             lastName: 'string',
             email: 'example@example.com',
-            password: 'string',
             phone: '+521231231231',
             area: 'string',
             job: 'string'
