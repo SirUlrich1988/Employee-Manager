@@ -37,7 +37,7 @@ const registerUser = (req, res) => {
     ) {
         //? Ejecutamos el controller
         usersControllers.createUser({
-          firstName, lastName, email, password, phone, area, job
+          firstName, lastName, email, password, phone, role, area, job
         })
             .then(data => {
                 res.status(201).json(data)
