@@ -57,6 +57,7 @@ const registerUser = (req, res) => {
             email: 'example@example.com',
             password: 'string',
             phone: '+52 1231231231',
+            role: 'string',
             area: 'string',
             job: 'string'
         }})
