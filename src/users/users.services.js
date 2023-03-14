@@ -64,10 +64,10 @@ const registerUser = (req, res) => {
 
 const patchUser = (req, res) => {
   const id = req.params.id;
-  const { firstName, lastName, email, password, phone, area, job } = req.body
+  const { firstName, lastName, email, password, phone, role, area, job } = req.body
 
   usersControllers
-    .updateUser(id, { firstName, lastName, email, password, phone, area, job })
+    .updateUser(id, { firstName, lastName, email, password, phone, role, area, job })
     .then((data) => {
       if (data[0]) {
         res
