@@ -24,56 +24,22 @@ const getUserById = (req, res) => {
 };
 
 const registerUser = (req, res) => {
-  const {firstName, lastName, email, phone, area, job } = req.body
-
-    if (
-        firstName &&
-        lastName &&
-        email &&
-        phone &&
-        area &&
-        job
-    ) {
-        //? Ejecutamos el controller
-        usersControllers.createUser({
-          firstName, lastName, email, phone, area, job
-        })
-            .then( data => {
-                res.status(201).json(data)
-            })
-            .catch(err => {
-                res.status(400).json(err.message)
-            })
-    } else {
-
-    // Error cuando no mandan todos los datos necesarios para crear un usuario //
-
-        res.status(400).json({message: 'All fields must be completed', 
-        fields: {
-            firstName: 'string',
-            lastName: 'string',
-            email: 'example@example.com',
-            phone: '+521231231231',
-            area: 'string',
-            job: 'string'
-        }})
-    }
-}
-
-const registerManager = (req, res) => {
-  const {firstName, lastName, email, password, role} = req.body
+  const {firstName, lastName, email, password, phone, area, job } = req.body
 
     if (
         firstName &&
         lastName &&
         email &&
         password &&
-        role
+        phone &&
+        area &&
+        job
     ) {
         //? Ejecutamos el controller
         usersControllers.createUser({
-          firstName, lastName, email, password, role})
-            .then( data => {
+          firstName, lastName, email, password, phone, area, job
+        })
+            .then(data => {
                 res.status(201).json(data)
             })
             .catch(err => {
@@ -89,11 +55,12 @@ const registerManager = (req, res) => {
             lastName: 'string',
             email: 'example@example.com',
             password: 'string',
-            role: 'string'
+            phone: '+52 1231231231',
+            area: 'string',
+            job: 'string'
         }})
     }
 }
-
 
 const patchUser = (req, res) => {
   const id = req.params.id;
@@ -136,7 +103,6 @@ module.exports = {
     getUserById,
     patchUser,
     registerUser,
-    deleteUser, 
-    registerManager
+    deleteUser
 }
 

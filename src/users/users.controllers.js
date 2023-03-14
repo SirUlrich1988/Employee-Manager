@@ -1,5 +1,3 @@
-const uuid = require('uuid')
-
 const Users = require('../models/users.models')
 const { hashPassword } = require('../tools/crypto')
 
@@ -27,22 +25,12 @@ const createUser = async (data) => {
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,
+        password: hashPassword(data.password),
         phone: data.phone,
         area: data.area,
         job: data.job
     })
     return newUser
-}
-
-const createManager = async (data) => {
-    const newManager = await Users.create({
-        firstName:data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        password: hashPassword(data.password),
-        role: data.role
-    })
-    return newManager
 }
 
 const updateUser = async (id, data) => {
@@ -79,6 +67,5 @@ module.exports = {
     getUserById,
     updateUser,
     deleteUser,
-    getUserByEmail,
-    createManager
+    getUserByEmail
 }
