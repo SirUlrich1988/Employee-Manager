@@ -24,7 +24,7 @@ const getUserById = (req, res) => {
 };
 
 const registerUser = (req, res) => {
-  const {firstName, lastName, email, password, phone, area, job } = req.body
+  const {firstName, lastName, email, password, phone, role, area, job } = req.body
 
     if (
         firstName &&
