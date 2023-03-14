@@ -32,6 +32,7 @@ const registerUser = (req, res) => {
         email &&
         password &&
         phone &&
+        role &&
         area &&
         job
     ) {
